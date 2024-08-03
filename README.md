@@ -18,7 +18,7 @@
 be sure to include the prototypes of the provided functions and `struct`s in `sort.h`
 
 #### Functions
-`print_array.c` : 
+in `print_array.c` : 
 ```c
 #include <stdlib.h>
 #include <stdio.h>
@@ -45,7 +45,7 @@ void print_array(const int *array, size_t size)
 }
 ```
 
-`print_list.c` 
+in `print_list.c` :
 ```c
 #include <stdio.h>
 #include "sort.h"
@@ -71,6 +71,7 @@ void print_list(const listint_t *list)
     printf("\n");
 }
 ```
+
 #### Data Structures
 in `sort.h` :
 ```c
@@ -88,9 +89,10 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 ```
-----
-## Big-O Notation Explanation
 
+----
+
+## Big-O Notation Explanation
 source : <https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation>
 
 
@@ -105,15 +107,12 @@ big-o notation is only concerned with worst-case scenarios rather then the commo
 when considering the cost-scaling calculations of a program's input, it is **only the most-significant term that matters**. that is, if our calculations turn out to be $n^3+4n^2+1232n+433$, then the term $n^3$ is what will dominate the cost
 
 ### Telephone Book (Example)
-
 given a divide-and-conquer algorithm such as binary search, it's calculation cost comes down to $O(\log n)$. the actual base of the log is irrelevant in much the same way that $O(332n)$ and $O(\frac{1}{2} n)$ are considered the same as $O(n)$.
 
 ### Traveling Salesman
-
 this longstanding problem in computation theory ask what is the shortest tour that visits every town in a given map ? that is how do we find such a path ? in other words what is the most efficient algorithm -- the one with the lowest computation cost ? 
 
 from a straightforward analysis, given a set of n towns will result in total of n! possible tours. thus, in the worst-case analysis we are dealing with $O(n!)$ computational cost
 
 ### Polynomial Time
-
 any algorithm with a cost of the form $O(n^c)$ (where $c$ is some constant) is said to be solvable in polynomial time. a question that theoraticians like to entertain themselves with is, whether or not for a given computational problem does there exist an algorithm that can solve it in polynomial time ? in practice, many widely-used algorithms are *not* polynomial time ($\Xi$. public-key cryptography)
