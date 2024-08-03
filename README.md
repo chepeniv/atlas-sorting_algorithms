@@ -8,7 +8,7 @@
 
 ## Guidelines
 - no more than five functions per file
-- the standard library is not allowed unless otherwise specified :mad:
+- the standard library is not allowed unless otherwise specified :angry:
 - `main.c` will not be compiled by the checker
 - include all function prototypes in `sort.h`
 - header files should be include-guarded
