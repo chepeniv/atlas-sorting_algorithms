@@ -1,5 +1,12 @@
 #include "sort.h"
 
+/**
+ * bubble_sort - a rudimentary sorting algorithm
+ * @array: array to sort
+ * @n: size of array
+ *
+ * Return: void
+ */
 void bubble_sort(int *array, size_t n)
 {
 	size_t order = 0, i = 0;
