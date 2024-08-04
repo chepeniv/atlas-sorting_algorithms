@@ -91,18 +91,30 @@ typedef struct listint_s
 ```
 
 ----
+
 ## Sorting Algorithm Visualizations
 source : <https://en.wikipedia.org>
+
 ### Bubble Sort
+
 ![bubble sort](./assets/bubble-sort-example.gif)
+
 ![bubble sort visualized](./assets/Bubble_sort_animation.gif)
+
 ### Insertion Sort
+
 ![insertion sort](./assets/insertion-sort-example.gif)
+
 ### Selection Sort
+
 ![selection sort](./assets/selection-sort-example.gif)
+
 ### Quick Sort
+
 ![quicksort](./assets/quicksort-example.gif)
+
 ![quicksort visualized](./assets/quicksort_anim.gif)
+
 ![quicksort diagram](./assets/quicksort-diagram.png)
 
 <!--
