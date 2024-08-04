@@ -1,1 +1,4 @@
 *.test.c
+*.out
+output.text
+test/
