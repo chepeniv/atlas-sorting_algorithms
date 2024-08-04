@@ -91,6 +91,35 @@ typedef struct listint_s
 ```
 
 ----
+## Sorting Algorithm Visualizations
+source : <https://en.wikipedia.org>
+### Bubble Sort
+![bubble sort](./assests/bubble-sort-example.gif)
+![bubble sort visualized](./assests/Bubble_sort_animation.gif)
+### Insertion Sort
+![insertion sort](./assests/insertion-sort-example.gif)
+### Selection Sort
+![selection sort](./assests/selection-sort-example.gif)
+### Quick Sort
+![quicksort](./assests/quicksort-example.gif)
+![quicksort visualized](./assests/quicksort_anim.gif)
+![quicksort diagram](./assests/quicksort-diagram.png)
+
+<!--
+
+### Advanced
+- Shell Sort
+- Cocktail Shaker Sort
+- Counting Sort
+- Merge Sort
+- Heap Sort
+- Radix Sort
+- Bitonic Sort
+- Quick Sort - Hoare Partition Scheme
+
+-->
+
+----
 
 ## Big-O Notation Explanation
 source : <https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation>
