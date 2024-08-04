@@ -1,36 +1,36 @@
 #include "sort.h"
 
+/*
+ * the value stored within a node cannot be changed
+ * only the nodes themselves can be moved around
+ */
+
 /**
- * insertion_sort_list - a rudimentary sorting algorithm
- * @list: pointer holding the location of the first list item
+ * insertion_sort_list -
+ * @list: pointer holding the location of the first node in a list
  *
  * Return: void
  */
-void insertion_sort_list(listnode **list)
+void insertion_sort_list(listnode **first)
 {
-	/*
-	 * the value stored within a node cannot be changed
-	 * only the nodes themselves can be moved around
-	 */
-	size_t order = 0, i = 0;
-	int current, next;
+	listnode **end, **pos, **current; /*malloc these*/
 
-	while (order != n - 1)
+	*end = *first;
+
+	while ((*end)->next != NULL)
 	{
-		order = 0;
-		for (i = 0; i + 1 < n; i++)
+		*pos = *end;
+		*current = (*end)->next;
+		while ((*pos)->n > (*current)->n)
 		{
-			if (array[i] > array[i + 1])
-			{
-				current = array[i];
-				next = array[i + 1];
-				array[i] = next;
-				array[i + 1] = current;
-
-				print_array(array, n);
-			}
+			if ((*pos)->prev != NULL)
+				*pos = (*pos)->prev;
 			else
-				order++;
+				break;
 		}
+		if (*pos != *end)
+			/* insert current before pos) */;
+		if ((*end)->n < (*end)->next->n)
+			*end = (*end)->next;
 	}
 }
