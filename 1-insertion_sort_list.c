@@ -10,49 +10,49 @@ void insertion_sort_list(listnode **first)
 {
 	listnode **end, **pos, **current; /*malloc these*/
 
-	/*
-	int length = 0;
-	while ((*first)->next != NULL)
-		length++;
-	if (length < 3)
-		return;
-	*/
-
 	end = malloc(sizeof(void *));
 	pos = malloc(sizeof(void *));
 	current = malloc(sizeof(void *));
 	if (end == NULL || pos == NULL || current == NULL)
 		return;
 
-	printf("entered first whileloop\n");
 	*end = *first;
 	while ((*end)->next != NULL)
 	{
 		*pos = *end;
 		*current = (*end)->next;
+
 		while ((*pos)->n > (*current)->n)
 		{
-			*pos = (*pos)->prev;
-			if (*pos == NULL)
+			if ((*pos)->prev == NULL)
 				break;
+			*pos = (*pos)->prev;
 		}
 
 		if (*pos != *end)
 		{
-			if (*pos != NULL)
+			if ((*current)->next != NULL)
+				(*current)->next->prev = (*current)->prev;
+			(*current)->prev->next = (*current)->next;
+
+			if ((*pos)->prev != NULL)
 			{
-				if ((*current)->next != NULL)
-					(*current)->next->prev = (*current)->prev;
-				(*current)->prev->next = (*current)->next;
 				(*current)->prev = *pos;
 				(*current)->next = (*pos)->next;
 				(*pos)->next = *current;
 				(*current)->next->prev = *current;
 			}
+			else
+			{
+				(*current)->next = *pos;
+				(*current)->prev = NULL;
+				(*pos)->prev = *current;
+				*first = *current;
+			}
 			print_list(*first);
 		}
 
-		if ((*end)->n < (*end)->next->n)
+		if ((*end)->next != NULL && (*end)->n < (*end)->next->n)
 			*end = (*end)->next;
 	}
 
