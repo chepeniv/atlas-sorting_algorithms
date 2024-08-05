@@ -14,21 +14,20 @@ void quick_sort(int *array, size_t len)
 
 	printf("pivot = %d\n", array[pivot]);
 	curr = 0;
+	if (len == 1)
+		return;
 	while (curr < len)
 	{
 		printf("array[curr] = %d\n", array[curr]);
-		getchar();
 		if (array[curr] >= array[len - 1])
 		{
 			next = curr;
 			while (next < len)
 			{
 				printf("\tarray[next] = %d\n", array[next]);
-				getchar();
 				if (array[next] < array[len - 1])
 				{
-					printf("\tinner-most if\n");
-					getchar();
+					printf("swapping curr %d with next %d\n", array[curr], array[next]);
 					if (next == len - 1)
 						pivot = next;
 					hold = array[next];
@@ -40,13 +39,13 @@ void quick_sort(int *array, size_t len)
 				}
 				else if (next == len - 1)
 				{
-					printf("\tinner-most else-if\n");
+					printf("swapping curr %d with next %d\n", array[curr], array[next]);
 					hold = array[curr];
-					array[curr] = array[len - 1];
-					array[len - 1] = hold;
+					array[curr] = array[next];
+					array[next] = hold;
 
-					pivot = len - 1;
-					curr = pivot;
+					pivot = len - 2;
+					curr = pivot + 1;
 
 					print_array(array, len);
 					break;
@@ -57,12 +56,9 @@ void quick_sort(int *array, size_t len)
 		}
 		++curr;
 	}
-	printf("pivot = %d\n", array[pivot]);
 	printf("TOP rec call\n");
-	getchar();
 	quick_sort(array, pivot + 1);
 
 	printf("BOTTOM rec call\n");
-	getchar();
-	quick_sort(&array[pivot], len - pivot + 1);
+	quick_sort(&array[pivot], len - pivot - 1);
 }
