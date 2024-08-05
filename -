@@ -12,7 +12,6 @@ void quick_sort(int *array, size_t len)
 	size_t curr, next, pivot = len - 1;
 	int hold;
 
-	printf("pivot = %d\n", array[pivot]);
 	curr = 0;
 	while (curr < len)
 	{
@@ -60,9 +59,9 @@ void quick_sort(int *array, size_t len)
 	printf("pivot = %d\n", array[pivot]);
 	printf("TOP rec call\n");
 	getchar();
-	quick_sort(array, pivot + 1);
+	quick_sort(array, pivot);
 
 	printf("BOTTOM rec call\n");
 	getchar();
-	quick_sort(&array[pivot], len - pivot + 1);
+	quick_sort(&array[pivot], len - pivot);
 }
