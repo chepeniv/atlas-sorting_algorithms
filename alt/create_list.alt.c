@@ -8,10 +8,10 @@
  *
  * Return: Pointer to the first element of the created list. NULL on failure
  */
-listint_t *create_list(const int *array, size_t size)
+listnode *create_list(const int *array, size_t size)
 {
-    listint_t *list;
-    listint_t *node;
+    listnode *list;
+    listnode *node;
     int *tmp;
 
     list = NULL;

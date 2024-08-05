@@ -5,7 +5,7 @@
  *
  * @list: The list to be printed
  */
-void print_list(const listint_t *list)
+void print_list(const listnode *list)
 {
     int i;
 

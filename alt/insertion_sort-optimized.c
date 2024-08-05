@@ -6,9 +6,9 @@
  *
  * Return: void
  */
-void insertion_sort_list(listint_t **first)
+void insertion_sort_list(listnode **first)
 {
-	listint_t **end, **pos, **current; /*malloc these*/
+	listnode **end, **pos, **current; /*malloc these*/
 
 	end = malloc(sizeof(void *));
 	pos = malloc(sizeof(void *));
