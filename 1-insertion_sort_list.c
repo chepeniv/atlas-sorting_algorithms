@@ -1,7 +1,8 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list -
+ * insertion_sort_list - implements the classic insertion sort algorithm
+ * upon a doubly linked list
  * @list: pointer holding the location of the first node in a list
  *
  * Return: void
@@ -40,6 +41,15 @@ void insertion_sort_list(listint_t **first)
 	free(current);
 }
 
+
+/**
+ * swap_nodes - swaps two adjacent nodes
+ * @first: the head of the list used to handle special cases
+ * @a: the node to swap with the second
+ * @b: the node to swap with the first
+ *
+ * Return: void
+ */
 void swap_nodes(listint_t **first, listint_t **a, listint_t **b)
 {
 	(*a)->next = (*b)->next;
