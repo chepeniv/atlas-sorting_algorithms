@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "sort.h"
 
 /**
  * struct _list_node - Doubly linked list node

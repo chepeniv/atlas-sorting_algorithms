@@ -1,4 +1,4 @@
-#include "sort.h"
+#include "sort.alt.h"
 
 /**
  * insertion_sort_list -
@@ -24,9 +24,9 @@ void insertion_sort_list(listnode **first)
 
 		while ((*pos)->n > (*current)->n)
 		{
-			if ((*pos)->prev == NULL)
-				break;
 			*pos = (*pos)->prev;
+			if (*pos== NULL)
+				break;
 		}
 
 		if (*pos != *end)
@@ -35,7 +35,7 @@ void insertion_sort_list(listnode **first)
 				(*current)->next->prev = (*current)->prev;
 			(*current)->prev->next = (*current)->next;
 
-			if ((*pos)->prev != NULL)
+			if (*pos != NULL)
 			{
 				(*current)->prev = *pos;
 				(*current)->next = (*pos)->next;
@@ -44,15 +44,15 @@ void insertion_sort_list(listnode **first)
 			}
 			else
 			{
-				(*current)->next = *pos;
+				(*current)->next = *first;
 				(*current)->prev = NULL;
-				(*pos)->prev = *current;
+				(*first)->prev = *current;
 				*first = *current;
 			}
 			print_list(*first);
 		}
 
-		if ((*end)->next != NULL && (*end)->n < (*end)->next->n)
+		if ((*end)->next != NULL && (*end)->n <= (*end)->next->n)
 			*end = (*end)->next;
 	}
 

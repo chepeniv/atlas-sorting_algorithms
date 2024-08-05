@@ -1,4 +1,4 @@
-#include "sort.h"
+#include "sort.alt.h"
 
 /**
  * print_list - Prints a list of integers

@@ -1,4 +1,4 @@
-#include "sort.h"
+#include "sort.alt.h"
 
 /**
  * create_list - Creates a doubly linked list from an array of integers
