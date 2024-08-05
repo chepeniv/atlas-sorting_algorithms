@@ -3,7 +3,7 @@
 /**
  * insertion_sort_list - implements the classic insertion sort algorithm
  * upon a doubly linked list
- * @list: pointer holding the location of the first node in a list
+ * @first: pointer holding the location of the first node in a list
  *
  * Return: void
  */
