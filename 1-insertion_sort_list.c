@@ -8,7 +8,7 @@
  */
 void insertion_sort_list(listint_t **first)
 {
-	listint_t **end, **pos, **current; /*malloc these*/
+	listint_t **end, **pos, **current;
 
 	end = malloc(sizeof(void *));
 	pos = malloc(sizeof(void *));
@@ -20,36 +20,26 @@ void insertion_sort_list(listint_t **first)
 	while ((*end)->next != NULL)
 	{
 		*pos = *end;
-		*current = (*end)->next;
+		*current = (*pos)->next;
 
 		while ((*pos)->n > (*current)->n)
 		{
-			*pos = (*pos)->prev;
-			if (*pos== NULL)
-				break;
-		}
-
-		if (*pos != *end)
-		{
-			if ((*current)->next != NULL)
-				(*current)->next->prev = (*current)->prev;
-			(*current)->prev->next = (*current)->next;
-
-			if (*pos != NULL)
-			{
-				(*current)->prev = *pos;
-				(*current)->next = (*pos)->next;
-				(*pos)->next = *current;
-				(*current)->next->prev = *current;
-			}
+			(*pos)->next = (*current)->next;
+			if ((*pos)->next != NULL)
+				(*pos)->next->prev = *pos;
+			(*current)->prev = (*pos)->prev;
+			if ((*current)->prev != NULL)
+				(*current)->prev->next = *current;
 			else
-			{
-				(*current)->next = *first;
-				(*current)->prev = NULL;
-				(*first)->prev = *current;
 				*first = *current;
-			}
+			(*pos)->prev = *current;
+			(*current)->next = *pos;
+
 			print_list(*first);
+
+			*pos = (*current)->prev;
+			if (*pos == NULL)
+				break;
 		}
 
 		if ((*end)->next != NULL && (*end)->n <= (*end)->next->n)
@@ -60,3 +50,18 @@ void insertion_sort_list(listint_t **first)
 	free(pos);
 	free(current);
 }
+
+/*
+void swap_nodes(listint_t **a, listint_t **b)
+{
+	(*a)->next = (*b)->next;
+	if ((*b)->next != NULL)
+		(*a)->next->prev = *a;
+
+	(*b)->prev = (*a)->prev;
+	if ((*a)->prev != NULL)
+		(*b)->prev->next = *b;
+
+	(*a)->prev = *b;
+	(*b)->next = *a;
+}*/
