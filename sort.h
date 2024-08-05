@@ -21,7 +21,7 @@ typedef struct listint_s
 } listint_t;
 
 listint_t *create_list(const int *array, size_t size);
-void swap_nodes(listint_t **a, listint_t **b);
+void swap_nodes(listint_t **first, listint_t **a, listint_t **b);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
