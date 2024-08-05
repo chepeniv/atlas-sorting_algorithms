@@ -24,9 +24,9 @@ void insertion_sort_list(listint_t **first)
 
 		while ((*pos)->n > (*current)->n)
 		{
-			if ((*pos)->prev == NULL)
-				break;
 			*pos = (*pos)->prev;
+			if (*pos== NULL)
+				break;
 		}
 
 		if (*pos != *end)
@@ -35,7 +35,7 @@ void insertion_sort_list(listint_t **first)
 				(*current)->next->prev = (*current)->prev;
 			(*current)->prev->next = (*current)->next;
 
-			if ((*pos)->prev != NULL)
+			if (*pos != NULL)
 			{
 				(*current)->prev = *pos;
 				(*current)->next = (*pos)->next;
@@ -44,9 +44,9 @@ void insertion_sort_list(listint_t **first)
 			}
 			else
 			{
-				(*current)->next = *pos;
+				(*current)->next = *first;
 				(*current)->prev = NULL;
-				(*pos)->prev = *current;
+				(*first)->prev = *current;
 				*first = *current;
 			}
 			print_list(*first);
