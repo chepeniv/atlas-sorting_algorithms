@@ -52,7 +52,7 @@ void insertion_sort_list(listint_t **first)
 			print_list(*first);
 		}
 
-		if ((*end)->next != NULL && (*end)->n < (*end)->next->n)
+		if ((*end)->next != NULL && (*end)->n <= (*end)->next->n)
 			*end = (*end)->next;
 	}
 
