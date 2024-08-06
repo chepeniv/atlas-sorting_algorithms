@@ -43,7 +43,6 @@ void quick_sort(int *array, size_t len)
 		{
 			pivot = pivot - 1;
 			curr = 0;
-			continue;
 		}
 		++curr;
 	}
