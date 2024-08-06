@@ -9,46 +9,44 @@
  */
 void quick_sort(int *array, size_t len)
 {
-	size_t curr, next, pivot = len - 1;
+	size_t pivot = len - 1, part = 0 , curr = 0 , next = 0 ;
 	int hold;
 
-	curr = 0;
-	if (len == 1)
-		return;
-	while (curr < len)
+	while (curr <= pivot)
 	{
-		if (array[curr] >= array[len - 1])
+		if (array[curr] > array[pivot])
 		{
 			next = curr;
-			while (next < len)
+			while (next < pivot)
 			{
-				if (array[next] < array[len - 1])
-				{
-					if (next == len - 1)
-						pivot = next;
-					hold = array[next];
-					array[next] = array[curr];
-					array[curr] = hold;
-
-					print_array(array, len);
-					break;
-				}
-				else if (next == len - 1)
+				if (array[next] <= array[pivot])
 				{
 					hold = array[curr];
 					array[curr] = array[next];
 					array[next] = hold;
-
-					pivot = len - 2;
-
+					part++;
+					printf("part(%d)\n", array[part]);
 					print_array(array, len);
 					break;
 				}
 				++next;
 			}
+			if (array[curr] > array[pivot])
+			{
+				hold = array[pivot];
+				array[pivot] = array[curr];
+				array[curr] = hold;
+				part++;
+				print_array(array, len);
+				printf("part(%d)\n", array[part]);
+			}
+		}
+		if (curr == pivot)
+		{
+			pivot = pivot - 1;
+			curr = 0;
+			printf("pivot(%d), part(%d)\n", array[pivot], array[part]);
 		}
 		++curr;
 	}
-	quick_sort(array, pivot + 1);
-	quick_sort(&array[pivot], len - pivot - 1);
 }
