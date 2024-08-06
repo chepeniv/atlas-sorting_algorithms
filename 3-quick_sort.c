@@ -12,6 +12,8 @@ void quick_sort(int *array, size_t len)
 	size_t pivot = len - 1, curr = 0 , next = 0 ;
 	int hold;
 
+	if (len < 2)
+		return;
 	while (curr <= pivot)
 	{
 		if (array[curr] > array[pivot])
@@ -41,6 +43,7 @@ void quick_sort(int *array, size_t len)
 		{
 			pivot = pivot - 1;
 			curr = 0;
+			continue;
 		}
 		++curr;
 	}

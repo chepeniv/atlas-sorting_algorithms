@@ -1,5 +1,5 @@
 *.test.c
 *.out
 *.guide
-output.text
+*.output
 test/
