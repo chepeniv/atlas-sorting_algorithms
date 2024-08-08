@@ -29,5 +29,7 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void qs_motor(int *array, int len, int bot, int piv);
+void swap_values(int *array, int first, int second);
 
 #endif

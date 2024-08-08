@@ -1,8 +1,5 @@
 #include "sort.h"
 
-void qs_motor(int *array, int len, int bot, int piv);
-void swap_values(int *array, int first, int second);
-
 /**
  * quick_sort - the most resource efficient of the sorting algorithms given
  * @array: array to sort
@@ -17,6 +14,15 @@ void quick_sort(int *array, size_t len)
 	qs_motor(array, len - 1, 0, len - 1);
 }
 
+/**
+ * qs_motor - the engine that powers the quick_sort function
+ * @array: array to sort
+ * @len: the index-lenght of the current partition
+ * @bot: the lower index from which to begin
+ * @piv: the pivot point to reference
+ *
+ * Return: void
+ */
 void qs_motor(int *array, int len, int bot, int piv)
 {
 	int curr = bot, swap = bot;
@@ -53,6 +59,14 @@ void qs_motor(int *array, int len, int bot, int piv)
 	}
 }
 
+/**
+ * swap_values - swaps the values of to index points given
+ * @array: array to modify
+ * @first: first index
+ * @second: second index
+ *
+ * Return: void
+ */
 void swap_values(int *array, int first, int second)
 {
 	int hold;
