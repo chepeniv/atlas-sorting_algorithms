@@ -1,5 +1,8 @@
 #include "sort.h"
 
+void qs_motor(int *array, int len, int bot, int piv);
+void swap_values(int *array, int first, int second);
+
 /**
  * quick_sort - the most resource efficient of the sorting algorithms given
  * @array: array to sort
@@ -9,41 +12,52 @@
  */
 void quick_sort(int *array, size_t len)
 {
-	size_t pivot = len - 1, curr = 0 , next = 0 ;
-	int hold;
-
 	if (len < 2)
 		return;
-	while (curr <= pivot)
+	qs_motor(array, len - 1, 0, len - 1);
+}
+
+void qs_motor(int *array, int len, int bot, int piv)
+{
+	int curr = bot, swap = bot;
+
+	while (curr <= piv)
 	{
-		if (array[curr] > array[pivot])
+		if (array[curr] > array[piv])
 		{
-			next = curr;
-			while (next < pivot)
+			swap = curr;
+			while (swap < piv)
 			{
-				if (array[next] <= array[pivot])
+				if (array[swap] <= array[piv])
 				{
-					hold = array[curr];
-					array[curr] = array[next];
-					array[next] = hold;
+					swap_values(array, curr, swap);
 					print_array(array, len);
 					break;
 				}
-				++next;
+				++swap;
 			}
-			if (array[curr] > array[pivot])
+			if (array[curr] > array[piv])
 			{
-				hold = array[pivot];
-				array[pivot] = array[curr];
-				array[curr] = hold;
+				swap_values(array, curr, swap);
 				print_array(array, len);
 			}
+			if (swap == piv)
+			{
+				qs_motor(array, len, bot, curr - 1);
+				qs_motor(array, len, curr + 1, piv);
+			}
 		}
-		if (curr == pivot)
-		{
-			pivot = pivot - 1;
-			curr = 0;
-		}
+		if (curr == piv)
+			qs_motor(array, len, bot, curr - 1);
 		++curr;
 	}
+}
+
+void swap_values(int *array, int first, int second)
+{
+	int hold;
+
+	hold = array[first];
+	array[first] = array[second];
+	array[second] = hold;
 }
