@@ -15,7 +15,6 @@ void quick_sort(int *array, size_t len)
 	if (len < 2)
 		return;
 	qs_motor(array, len - 1, 0, len - 1);
-	print_array(array, len);
 }
 
 void qs_motor(int *array, int len, int bot, int piv)
