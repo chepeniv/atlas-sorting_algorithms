@@ -11,7 +11,7 @@ void quick_sort(int *array, size_t len)
 {
 	if (len < 2)
 		return;
-	qs_motor(array, len - 1, 0, len - 1);
+	qs_motor(array, len, 0, len - 1);
 }
 
 /**
@@ -37,7 +37,7 @@ void qs_motor(int *array, int len, int bot, int piv)
 				if (array[swap] <= array[piv])
 				{
 					swap_values(array, curr, swap);
-					print_array(array, len + 1);
+					print_array(array, len);
 					break;
 				}
 				++swap;
@@ -45,7 +45,7 @@ void qs_motor(int *array, int len, int bot, int piv)
 			if (array[curr] > array[piv])
 			{
 				swap_values(array, curr, swap);
-				print_array(array, len + 1);
+				print_array(array, len);
 			}
 			if (swap == piv)
 			{
@@ -60,7 +60,7 @@ void qs_motor(int *array, int len, int bot, int piv)
 }
 
 /**
- * swap_values - swaps the values of to index points given
+ * swap_values - swaps the values of two index points given
  * @array: array to modify
  * @first: first index
  * @second: second index
