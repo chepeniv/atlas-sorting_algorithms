@@ -1,5 +1,51 @@
-*.test.c
+######## reference extensions
+
+######## documentation
+
+# *.doc
+# *.doc.*
+# *.man
+# *.ref
+# *.ref.*
+
+######## testing
+
+# *.file
+*.dummy
+*.dummy.*
+*.test
+# *.test.*
+# *.cunit.*
+
+######## output analysis
+
+*.check
+*.check.*
+*.cmp
+*.cmp.*
+*.err
+*.error
+*.log
+# *.output
+
+######## force ignore
+
+*.ignore
+*.ignore.*
+
+######## generated files
+
+*.exec
+*.o
 *.out
-*.guide
-*.output
-test/
+*.run
+*.start
+*.x
+*~
+
+######## specific files
+
+__pycache__
+# validation/*
+# tests/*
+# scenarios/*
